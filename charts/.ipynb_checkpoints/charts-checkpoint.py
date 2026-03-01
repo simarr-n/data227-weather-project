@@ -110,8 +110,8 @@ def chart_dashboard(df: pd.DataFrame) -> alt.Chart:
 
 def precip_chart(df):
     chart = alt.Chart(df).mark_line().encode(
-        x="date:T", 
-        y="precipitation:Q", title="Precipitation (in)")
+            x=alt.X("date:T", title="Date"),
+            y=alt.Y("precipitation:Q", title="Precipitation (in)"),)
     return chart
 
 def interactive_chart(df):
@@ -120,8 +120,8 @@ def interactive_chart(df):
     chart = (alt.Chart(df)
         .mark_circle()
         .encode(
-            x="temp_max:Q",
-            y="precipitation:Q", , title="Precipitation (in)"),
+            x=alt.X("temp_max:Q", title="Max temp"),
+            y=alt.Y("precipitation:Q", title="Precipitation (in)"),
             color=alt.condition(brush, "weather:N", alt.value("lightgray"))) .add_selection(brush))
     
     return chart
