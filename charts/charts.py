@@ -108,10 +108,10 @@ def chart_dashboard(df: pd.DataFrame) -> alt.Chart:
 
     return alt.vconcat(line, hist).resolve_scale(color="independent")
 
-def temp_chart(df):
+def precip_chart(df):
     chart = alt.Chart(df).mark_line().encode(
         x="date:T",
-        y="temp_max:Q")
+        y="precipitation:Q")
     return chart
 
 def interactive_chart(df):
